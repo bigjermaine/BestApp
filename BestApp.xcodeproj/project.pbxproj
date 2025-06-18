@@ -6,6 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D085C73A2E02D444009A59D3 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7392E02D444009A59D3 /* Tabbar.swift */; };
+		D085C73D2E02D4DB009A59D3 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C73C2E02D4DB009A59D3 /* Tab.swift */; };
+		D085C7402E02D927009A59D3 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C73F2E02D927009A59D3 /* OnboardingViewModel.swift */; };
+		D085C7432E02D948009A59D3 /* GenderSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7422E02D948009A59D3 /* GenderSelectionView.swift */; };
+		D085C7452E02DD62009A59D3 /* InterestPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7442E02DD61009A59D3 /* InterestPreferencesView.swift */; };
+		D085C7482E02DDAA009A59D3 /* PreviewDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7472E02DDAA009A59D3 /* PreviewDatas.swift */; };
+		D085C74A2E02E408009A59D3 /* NameEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7492E02E408009A59D3 /* NameEntryView.swift */; };
+		D085C74D2E02EAD6009A59D3 /* RouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C74C2E02EAD6009A59D3 /* RouteManager.swift */; };
+		D085C7502E02F0C3009A59D3 /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C74F2E02F0C3009A59D3 /* NavigationState.swift */; };
+		D085C7532E0305B6009A59D3 /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7522E0305B6009A59D3 /* BadgeManager.swift */; };
+		D0FEB31A2E02D1F900442430 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0FEB3142E02D1F900442430 /* Preview Assets.xcassets */; };
+		D0FEB31B2E02D1F900442430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0FEB3162E02D1F900442430 /* Assets.xcassets */; };
+		D0FEB31C2E02D1F900442430 /* BestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FEB3172E02D1F900442430 /* BestAppApp.swift */; };
+		D0FEB31D2E02D1F900442430 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FEB3182E02D1F900442430 /* ContentView.swift */; };
+		D0FEB3202E02D1FD00442430 /* BestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FEB31E2E02D1FD00442430 /* BestAppTests.swift */; };
+		D0FEB3242E02D20200442430 /* BestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FEB3212E02D20200442430 /* BestAppUITests.swift */; };
+		D0FEB3252E02D20200442430 /* BestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FEB3222E02D20200442430 /* BestAppUITestsLaunchTests.swift */; };
+		D0FEB3282E02D22700442430 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FEB3272E02D22700442430 /* Launch Screen.storyboard */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D0FEB2F82E02D01000442430 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,28 +45,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D085C7392E02D444009A59D3 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		D085C73C2E02D4DB009A59D3 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		D085C73F2E02D927009A59D3 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		D085C7422E02D948009A59D3 /* GenderSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionView.swift; sourceTree = "<group>"; };
+		D085C7442E02DD61009A59D3 /* InterestPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestPreferencesView.swift; sourceTree = "<group>"; };
+		D085C7472E02DDAA009A59D3 /* PreviewDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDatas.swift; sourceTree = "<group>"; };
+		D085C7492E02E408009A59D3 /* NameEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEntryView.swift; sourceTree = "<group>"; };
+		D085C74C2E02EAD6009A59D3 /* RouteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteManager.swift; sourceTree = "<group>"; };
+		D085C74F2E02F0C3009A59D3 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
+		D085C7522E0305B6009A59D3 /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 		D0FEB2E72E02D00E00442430 /* BestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FEB2F72E02D01000442430 /* BestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FEB3012E02D01000442430 /* BestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FEB3142E02D1F900442430 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D0FEB3162E02D1F900442430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0FEB3172E02D1F900442430 /* BestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestAppApp.swift; sourceTree = "<group>"; };
+		D0FEB3182E02D1F900442430 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D0FEB31E2E02D1FD00442430 /* BestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestAppTests.swift; sourceTree = "<group>"; };
+		D0FEB3212E02D20200442430 /* BestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestAppUITests.swift; sourceTree = "<group>"; };
+		D0FEB3222E02D20200442430 /* BestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D0FEB3272E02D22700442430 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		D0FEB2E92E02D00E00442430 /* BestApp */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BestApp;
-			sourceTree = "<group>";
-		};
-		D0FEB2FA2E02D01000442430 /* BestAppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BestAppTests;
-			sourceTree = "<group>";
-		};
-		D0FEB3042E02D01000442430 /* BestAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BestAppUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D0FEB2E42E02D00E00442430 /* Frameworks */ = {
@@ -72,12 +93,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D085C7382E02D429009A59D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D085C7412E02D940009A59D3 /* Onboarding */,
+				D085C73B2E02D4D4009A59D3 /* Tabbars */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D085C73B2E02D4D4009A59D3 /* Tabbars */ = {
+			isa = PBXGroup;
+			children = (
+				D085C73C2E02D4DB009A59D3 /* Tab.swift */,
+				D085C7392E02D444009A59D3 /* Tabbar.swift */,
+			);
+			path = Tabbars;
+			sourceTree = "<group>";
+		};
+		D085C73E2E02D91D009A59D3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D085C73F2E02D927009A59D3 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D085C7412E02D940009A59D3 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D085C7492E02E408009A59D3 /* NameEntryView.swift */,
+				D085C7422E02D948009A59D3 /* GenderSelectionView.swift */,
+				D085C7442E02DD61009A59D3 /* InterestPreferencesView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		D085C7462E02DD93009A59D3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D085C7472E02DDAA009A59D3 /* PreviewDatas.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D085C74B2E02EAC0009A59D3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D085C7512E0305AA009A59D3 /* Badge */,
+				D085C74E2E02F0AB009A59D3 /* Route */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		D085C74E2E02F0AB009A59D3 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				D085C74C2E02EAD6009A59D3 /* RouteManager.swift */,
+				D085C74F2E02F0C3009A59D3 /* NavigationState.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		D085C7512E0305AA009A59D3 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				D085C7522E0305B6009A59D3 /* BadgeManager.swift */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
 		D0FEB2DE2E02D00E00442430 = {
 			isa = PBXGroup;
 			children = (
-				D0FEB2E92E02D00E00442430 /* BestApp */,
-				D0FEB2FA2E02D01000442430 /* BestAppTests */,
-				D0FEB3042E02D01000442430 /* BestAppUITests */,
+				D0FEB3192E02D1F900442430 /* BestApp */,
+				D0FEB31F2E02D1FD00442430 /* BestAppTests */,
+				D0FEB3232E02D20200442430 /* BestAppUITests */,
 				D0FEB2E82E02D00E00442430 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +181,55 @@
 				D0FEB3012E02D01000442430 /* BestAppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D0FEB3152E02D1F900442430 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D085C74B2E02EAC0009A59D3 /* Manager */,
+				D085C7462E02DD93009A59D3 /* Extension */,
+				D085C73E2E02D91D009A59D3 /* ViewModel */,
+				D085C7382E02D429009A59D3 /* Views */,
+				D0FEB3142E02D1F900442430 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D0FEB3192E02D1F900442430 /* BestApp */ = {
+			isa = PBXGroup;
+			children = (
+				D0FEB3152E02D1F900442430 /* Preview Content */,
+				D0FEB3172E02D1F900442430 /* BestAppApp.swift */,
+				D0FEB3182E02D1F900442430 /* ContentView.swift */,
+				D0FEB3262E02D20D00442430 /* MainCollection */,
+			);
+			path = BestApp;
+			sourceTree = "<group>";
+		};
+		D0FEB31F2E02D1FD00442430 /* BestAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0FEB31E2E02D1FD00442430 /* BestAppTests.swift */,
+			);
+			path = BestAppTests;
+			sourceTree = "<group>";
+		};
+		D0FEB3232E02D20200442430 /* BestAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D0FEB3212E02D20200442430 /* BestAppUITests.swift */,
+				D0FEB3222E02D20200442430 /* BestAppUITestsLaunchTests.swift */,
+			);
+			path = BestAppUITests;
+			sourceTree = "<group>";
+		};
+		D0FEB3262E02D20D00442430 /* MainCollection */ = {
+			isa = PBXGroup;
+			children = (
+				D0FEB3162E02D1F900442430 /* Assets.xcassets */,
+				D0FEB3272E02D22700442430 /* Launch Screen.storyboard */,
+			);
+			path = MainCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +246,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				D0FEB2E92E02D00E00442430 /* BestApp */,
 			);
 			name = BestApp;
 			packageProductDependencies = (
@@ -130,9 +267,6 @@
 			dependencies = (
 				D0FEB2F92E02D01000442430 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				D0FEB2FA2E02D01000442430 /* BestAppTests */,
-			);
 			name = BestAppTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +286,6 @@
 			);
 			dependencies = (
 				D0FEB3032E02D01000442430 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D0FEB3042E02D01000442430 /* BestAppUITests */,
 			);
 			name = BestAppUITests;
 			packageProductDependencies = (
@@ -212,6 +343,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FEB3282E02D22700442430 /* Launch Screen.storyboard in Resources */,
+				D0FEB31A2E02D1F900442430 /* Preview Assets.xcassets in Resources */,
+				D0FEB31B2E02D1F900442430 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +370,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D085C7432E02D948009A59D3 /* GenderSelectionView.swift in Sources */,
+				D085C7402E02D927009A59D3 /* OnboardingViewModel.swift in Sources */,
+				D085C73A2E02D444009A59D3 /* Tabbar.swift in Sources */,
+				D0FEB31C2E02D1F900442430 /* BestAppApp.swift in Sources */,
+				D085C7482E02DDAA009A59D3 /* PreviewDatas.swift in Sources */,
+				D085C7502E02F0C3009A59D3 /* NavigationState.swift in Sources */,
+				D085C74D2E02EAD6009A59D3 /* RouteManager.swift in Sources */,
+				D085C7452E02DD62009A59D3 /* InterestPreferencesView.swift in Sources */,
+				D0FEB31D2E02D1F900442430 /* ContentView.swift in Sources */,
+				D085C74A2E02E408009A59D3 /* NameEntryView.swift in Sources */,
+				D085C73D2E02D4DB009A59D3 /* Tab.swift in Sources */,
+				D085C7532E0305B6009A59D3 /* BadgeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FEB3202E02D1FD00442430 /* BestAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +397,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FEB3242E02D20200442430 /* BestAppUITests.swift in Sources */,
+				D0FEB3252E02D20200442430 /* BestAppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,9 +542,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = J6DLB4DD6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -403,13 +554,15 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Best.com.BestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = Best12345.com.BestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -421,9 +574,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = J6DLB4DD6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -431,13 +586,15 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Best.com.BestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = Best12345.com.BestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
