@@ -7,17 +7,14 @@
 
 import SwiftUI
 
+
+
 struct InterestPreferencesView: View {
     @ObservedObject var viewModel: OnboardingViewModel
     @State private var selectedGender: String = "Female"
-    @State private var ageRange: ClosedRange<Double> = 18...30
-    @State private var selectedAgeRangeIndex: Int = 0
-    @EnvironmentObject var navigationState:NavigationState
-    let ageRanges: [ClosedRange<Int>] = [
-           18...25,
-           25...50,
-           50...60
-       ]
+    @State private var selectedAgeRange: AgeRange = .range18to25
+    @EnvironmentObject var navigationState: NavigationState
+
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
@@ -27,41 +24,50 @@ struct InterestPreferencesView: View {
                     .font(.title)
 
                 Picker("Gender", selection: $selectedGender) {
-                    Text("Male")
-                        .tag("Male")
-                    Text("Female")
-                        .tag("Female")
+                    Text("Male").tag("Male")
+                    Text("Female").tag("Female")
                 }
                 .pickerStyle(.segmented)
-                .background(Color.blue)
-              
                 .padding()
-                
+                .background(Color.blue.opacity(0.2))
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+
                 VStack {
                     Text("Select Age Range")
-                    .foregroundColor(.white)
-                    Picker("Age Range", selection: $selectedAgeRangeIndex) {
-                        Text("18–25").tag(0)
-                        Text("25–50").tag(1)
-                        Text("50+").tag(2)
+                        .foregroundColor(.white)
+
+                    Picker("Age Range", selection: $selectedAgeRange) {
+                        ForEach(AgeRange.allCases, id: \.self) { range in
+                            Text(range.rawValue).tag(range)
+                        }
                     }
                     .pickerStyle(.segmented)
-                    .background(Color.blue)
+                    .padding(.top, 8)
+                    .background(Color.blue.opacity(0.2))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
                 .padding()
+
                 Button("Finish") {
                     viewModel.interestedInGender = selectedGender
-                    viewModel.interestedInAgeRange = ageRanges[selectedAgeRangeIndex]
+                    viewModel.interestedInAgeRange = selectedAgeRange
                     viewModel.saveUser()
                     navigationState.push(to: .tabbarScreen)
                 }
                 .padding()
+                .frame(maxWidth: .infinity)
                 .background(Color.white)
+                .foregroundColor(.black)
                 .cornerRadius(10)
             }
             .padding()
         }
     }
+}
+
+#Preview {
+    InterestPreferencesView(viewModel: previewData)
+        .environmentObject(NavigationState())
 }
 
 #Preview {

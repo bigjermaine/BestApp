@@ -15,8 +15,7 @@ struct Tabbar: View {
             Group {
                 switch selectedTab {
                 case .cards:
-                    Text("cards")
-                        .foregroundStyle(.white)
+                    HomeView()
                 case .bonfire:
                     Text("bonfire")
                 case .matches:

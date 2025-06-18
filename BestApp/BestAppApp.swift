@@ -33,13 +33,16 @@ struct BestAppApp: App {
                         case .nameScreen:
                             NameEntryView(viewModel: onboardingViewModel)
                                 .environmentObject(navigationState)
+                            
 
                         case .tabbarScreen:
                             Tabbar()
                                 .environmentObject(navigationState)
+                                .environmentObject(onboardingViewModel)
                         }
                     }
                     .environmentObject(navigationState)
+                    .environmentObject(onboardingViewModel)
             }
             
         }

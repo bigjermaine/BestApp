@@ -19,7 +19,7 @@ struct GenderSelectionView: View {
                     .foregroundColor(.white)
                     .font(.title)
 
-                HStack(spacing: 30) {
+                VStack(spacing: 30) {
                     GenderCard(title: "Male", isSelected: selected == "Male")
                         .onTapGesture {
                             selected = "Male"
@@ -29,6 +29,12 @@ struct GenderSelectionView: View {
                         .onTapGesture {
                             selected = "Female"
                             viewModel.gender = "Female"
+                        }
+                    
+                    GenderCard(title: "Others", isSelected: selected == "Others")
+                        .onTapGesture {
+                            selected = "Others"
+                            viewModel.gender = "Others"
                         }
                 }
 
