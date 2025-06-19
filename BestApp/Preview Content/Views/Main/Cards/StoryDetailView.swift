@@ -248,18 +248,17 @@ struct StoryDetailView: View {
     private var waveformView: some View {
         HStack() {
             if recordingViewModel.isPlaying {
-                ZStack{
-                    WaveformView(audioURL: recordingViewModel.recordingURL!) { waveformShape in
-                        waveformShape
+                GeometryReader { geometry in
+                    ZStack{
+                        WaveformView(audioURL: recordingViewModel.recordingURL!,renderer:LinearWaveformRenderer() ) { waveformShape in
+                            waveformShape.fill(.white)
+                            waveformShape.fill(.purple).mask(alignment: .leading) {
+                                Rectangle().frame(width: geometry.size.width * recordingViewModel.playbackProgress)
+                            }
+                        }
                     }
-//                    if let waveformImage = recordingViewModel.waveformImage {
-//                        waveformImage
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(maxWidth:.infinity,maxHeight: 40)
-//                    }
                 }
-            }else {
+              }else {
                 WaveformLiveCanvas(
                     samples: recordingViewModel.audioLevels,
                     configuration: recordingViewModel.liveConfiguration,

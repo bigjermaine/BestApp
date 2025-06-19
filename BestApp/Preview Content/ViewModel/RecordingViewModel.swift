@@ -21,6 +21,7 @@ class RecordingViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var currentAudioLevel: Float = 0.0
     @Published var waveformImage: Image? = nil
     @Published var silence: Bool = true
+    @Published var playbackProgress: CGFloat = 0.0
 
     // MARK: - Private Internal Properties
     @Published private var dragOffset: CGSize = .zero
@@ -270,6 +271,11 @@ class RecordingViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
         let total = formatter.string(from: duration) ?? "00:00"
         
         playerTime = "\(current)/\(total)"
+        if duration > 0 {
+               playbackProgress = CGFloat(currentTime / duration)
+           } else {
+               playbackProgress = 0
+           }
     }
     
     // MARK: - AVAudioPlayerDelegate
@@ -292,32 +298,7 @@ class RecordingViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     // MARK: - Waveform Generation
-    func awaitWaveformImage() {
-        Task {
-            await generateWaveform()
-        }
-    }
-
-    func generateWaveform() async {
-        guard let url = recordingURL else { return }
-        
-        let drawer = WaveformImageDrawer()
-        let size = CGSize(width: 300, height: 120)
-        
-        do {
-            let uiImage = try await drawer.waveformImage(
-                fromAudioAt: url,
-                with: .init(size: size, style: .filled(.black)),
-                renderer: LinearWaveformRenderer()
-            )
-            
-            await MainActor.run {
-                waveformImage = Image(uiImage: uiImage)
-            }
-        } catch {
-            print("Waveform generation failed: \(error)")
-        }
-    }
+    
 
     // MARK: - Utility
     func formatTime(_ time: TimeInterval) -> String {
