@@ -1,0 +1,478 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@, %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$lld"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "Age Range" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altersbereich"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tranche d'âge"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fascia d'età"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interval de vârstă"
+          }
+        }
+      }
+    },
+    "bonfire" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagerfeuer"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feu de camp"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falò"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fugiar"
+          }
+        }
+      }
+    },
+    "Check back later for new connections" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schau später wieder vorbei für neue Verbindungen"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revenez plus tard pour de nouvelles connexions"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Torna più tardi per nuove connessioni"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Returns puspei per conexiuns novas"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continua"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stizzar"
+          }
+        }
+      }
+    },
+    "Enter your name" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gib deinen Namen ein"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrez votre nom"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci il tuo nome"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metta intgì il tieu num"
+          }
+        }
+      }
+    },
+    "Female" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiblich"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Femme"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Femminile"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Femna"
+          }
+        }
+      }
+    },
+    "Find your perfect match" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finde dein perfektes Match"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trova la tua anima gemella"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trova la tua anima gemella"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tschertga il to partenari ideal"
+          }
+        }
+      }
+    },
+    "Finish" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminer"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fine"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fin"
+          }
+        }
+      }
+    },
+    "Gender" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geschlecht"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genre"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genere"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cumanzar"
+          }
+        }
+      }
+    },
+    "Get Started" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loslegen"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inizia"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genr"
+          }
+        }
+      }
+    },
+    "Make your move, they are waiting 🎵" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mach deinen Zug, sie warten 🎵"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faites votre move, ils attendent 🎵"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fai la tua mossa, ti aspettano 🎵"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fa il to muvra, els aspetta 🎵"
+          }
+        }
+      }
+    },
+    "Male" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Männlich"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homme"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maschile"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maschile"
+          }
+        }
+      }
+    },
+    "matches" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übereinstimmungen"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Correspondances"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corrispondenze"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cumulaziuns"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "localizations" : {
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter"
+          }
+        },
+        "fr-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivant"
+          }
+        },
+        "it-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avanti"
+          }
+        },
+        "rm-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avon"
+          }
+        }
+      }
+    },
+    "No users available" : {
+
+    },
+    "profile" : {
+
+    },
+    "Profile" : {
+
+    },
+    "Release to delete" : {
+
+    },
+    "Select Age Range" : {
+
+    },
+    "Select Your Gender" : {
+
+    },
+    "Stroll question" : {
+
+    },
+    "Submit" : {
+
+    },
+    "Unmatch" : {
+
+    },
+    "Welcome to TrueConnect" : {
+
+    },
+    "What's your name?" : {
+
+    },
+    "Who are you interested in?" : {
+
+    },
+    "Your Turn" : {
+
+    }
+  },
+  "version" : "1.0"
+}

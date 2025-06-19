@@ -29,10 +29,12 @@ struct HomeView: View {
             .frame(maxWidth: .infinity,maxHeight: .infinity)
         }
         .fullScreenCover(item: $selectedUser) { user in
-            StoryDetailView(user: user)
-        }
-        .onAppear {
-            onboardingViewModel.filteredUsers = DummyUserDatabase.users
+            StoryDetailView(user: user){ updatedUser in
+                if let index = onboardingViewModel.filteredUsers.firstIndex(where: { $0.id == updatedUser.id }) {
+                    onboardingViewModel.filteredUsers[index] = updatedUser
+                    print(onboardingViewModel.filteredUsers.map({$0.isRecorded}))
+                }
+            }
         }
         .navigationBarBackButtonHidden()
     }

@@ -69,6 +69,13 @@ struct UserCardView: View {
                     ),
                     lineWidth: 2
                 )
+            
+            if user.isRecorded {
+                Image(systemName: "checkmark.circle.fill")
+                    .resizable()
+                    .foregroundColor(.purple)
+                    .frame(width: 50,height: 50)
+            }
         }
         .frame(width: 250, height: 300)
         .onTapGesture {

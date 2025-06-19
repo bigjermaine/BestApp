@@ -24,6 +24,10 @@
 		D085C7622E030BA5009A59D3 /* DummyUserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7612E030BA5009A59D3 /* DummyUserDatabase.swift */; };
 		D085C7642E030BBE009A59D3 /* AgeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7632E030BBE009A59D3 /* AgeRange.swift */; };
 		D085C7662E032910009A59D3 /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C7652E032910009A59D3 /* RecordingViewModel.swift */; };
+		D085C7692E0421B1009A59D3 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = D085C7682E0421B1009A59D3 /* DSWaveformImage */; };
+		D085C76B2E0421B1009A59D3 /* DSWaveformImageViews in Frameworks */ = {isa = PBXBuildFile; productRef = D085C76A2E0421B1009A59D3 /* DSWaveformImageViews */; };
+		D085C76D2E0455C3009A59D3 /* DummyUserDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C76C2E0455C3009A59D3 /* DummyUserDatabaseTests.swift */; };
+		D085C7702E0458CB009A59D3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D085C76F2E0458CB009A59D3 /* Localizable.xcstrings */; };
 		D0FEB31A2E02D1F900442430 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0FEB3142E02D1F900442430 /* Preview Assets.xcassets */; };
 		D0FEB31B2E02D1F900442430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0FEB3162E02D1F900442430 /* Assets.xcassets */; };
 		D0FEB31C2E02D1F900442430 /* BestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FEB3172E02D1F900442430 /* BestAppApp.swift */; };
@@ -69,6 +73,8 @@
 		D085C7612E030BA5009A59D3 /* DummyUserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyUserDatabase.swift; sourceTree = "<group>"; };
 		D085C7632E030BBE009A59D3 /* AgeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeRange.swift; sourceTree = "<group>"; };
 		D085C7652E032910009A59D3 /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
+		D085C76C2E0455C3009A59D3 /* DummyUserDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyUserDatabaseTests.swift; sourceTree = "<group>"; };
+		D085C76F2E0458CB009A59D3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		D0FEB2E72E02D00E00442430 /* BestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FEB2F72E02D01000442430 /* BestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FEB3012E02D01000442430 /* BestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D085C7692E0421B1009A59D3 /* DSWaveformImage in Frameworks */,
+				D085C76B2E0421B1009A59D3 /* DSWaveformImageViews in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +231,14 @@
 			path = DataBaseManager;
 			sourceTree = "<group>";
 		};
+		D085C76E2E04577C009A59D3 /* Localized */ = {
+			isa = PBXGroup;
+			children = (
+				D085C76F2E0458CB009A59D3 /* Localizable.xcstrings */,
+			);
+			path = Localized;
+			sourceTree = "<group>";
+		};
 		D0FEB2DE2E02D00E00442430 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +262,7 @@
 		D0FEB3152E02D1F900442430 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D085C76E2E04577C009A59D3 /* Localized */,
 				D085C7542E0307B7009A59D3 /* Model */,
 				D085C74B2E02EAC0009A59D3 /* Manager */,
 				D085C7462E02DD93009A59D3 /* Extension */,
@@ -271,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				D0FEB31E2E02D1FD00442430 /* BestAppTests.swift */,
+				D085C76C2E0455C3009A59D3 /* DummyUserDatabaseTests.swift */,
 			);
 			path = BestAppTests;
 			sourceTree = "<group>";
@@ -310,6 +328,8 @@
 			);
 			name = BestApp;
 			packageProductDependencies = (
+				D085C7682E0421B1009A59D3 /* DSWaveformImage */,
+				D085C76A2E0421B1009A59D3 /* DSWaveformImageViews */,
 			);
 			productName = BestApp;
 			productReference = D0FEB2E72E02D00E00442430 /* BestApp.app */;
@@ -384,9 +404,16 @@
 			knownRegions = (
 				en,
 				Base,
+				"rm-CH",
+				"it-CH",
+				"de-CH",
+				"fr-CH",
 			);
 			mainGroup = D0FEB2DE2E02D00E00442430;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D085C7672E0421B1009A59D3 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D0FEB2E82E02D00E00442430 /* Products */;
 			projectDirPath = "";
@@ -406,6 +433,7 @@
 			files = (
 				D0FEB3282E02D22700442430 /* Launch Screen.storyboard in Resources */,
 				D0FEB31A2E02D1F900442430 /* Preview Assets.xcassets in Resources */,
+				D085C7702E0458CB009A59D3 /* Localizable.xcstrings in Resources */,
 				D0FEB31B2E02D1F900442430 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D085C76D2E0455C3009A59D3 /* DummyUserDatabaseTests.swift in Sources */,
 				D0FEB3202E02D1FD00442430 /* BestAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +574,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -601,6 +631,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -617,6 +648,7 @@
 				DEVELOPMENT_TEAM = J6DLB4DD6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "please allow the this application to access your microphone for recording";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -649,6 +681,7 @@
 				DEVELOPMENT_TEAM = J6DLB4DD6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "please allow the this application to access your microphone for recording";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -777,6 +810,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D085C7672E0421B1009A59D3 /* XCRemoteSwiftPackageReference "DSWaveformImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmrschmidt/DSWaveformImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D085C7682E0421B1009A59D3 /* DSWaveformImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D085C7672E0421B1009A59D3 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;
+			productName = DSWaveformImage;
+		};
+		D085C76A2E0421B1009A59D3 /* DSWaveformImageViews */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D085C7672E0421B1009A59D3 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;
+			productName = DSWaveformImageViews;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0FEB2DF2E02D00E00442430 /* Project object */;
 }

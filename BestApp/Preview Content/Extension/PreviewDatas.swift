@@ -8,3 +8,4 @@
 import Foundation
 
 let previewData = OnboardingViewModel()
+let previewData2 = RecordingViewModel()

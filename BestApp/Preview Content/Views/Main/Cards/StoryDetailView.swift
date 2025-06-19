@@ -3,21 +3,28 @@
 //  BestApp
 //  Created by Daniel Jermaine on 18/06/2025.
 
-import SwiftUI
+
 import AVFoundation
+import DSWaveformImage
+import DSWaveformImageViews
+import SwiftUI
 
 struct StoryDetailView: View {
-    let user: UserModel
-    @State private var isRecording: Bool = false
-    @State private var recordingTime: TimeInterval = 0
+    var user: UserModel
+    var onSubmit: (UserModel) -> Void
     @State private var dragOffset: CGSize = .zero
-    @State private var audioLevels: [Float] = Array(repeating: 0.0, count: 50)
-    @State private var currentAudioLevel: Float = 0.0
-    @State private var recordingTimer: Timer?
-    @State private var audioRecorder: AVAudioRecorder?
-    @State private var showDeleteZone: Bool = false
     @Environment(\.dismiss) private var dismiss
+    @State private var showDeleteZone: Bool = false
+    @State private var localUser: UserModel
     @State private var animationTimer: Timer?
+    @EnvironmentObject var recordingViewModel:RecordingViewModel
+    
+    init(user: UserModel, onSubmit: @escaping (UserModel) -> Void) {
+          self.user = user
+          self.onSubmit = onSubmit
+          _localUser = State(initialValue: user) // initialize local copy
+      }
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -35,7 +42,6 @@ struct StoryDetailView: View {
                         )
                     )
                     .ignoresSafeArea()
-                
                 VStack {
                     topHeader
                     Spacer()
@@ -52,7 +58,7 @@ struct StoryDetailView: View {
         }
         .navigationBarHidden(true)
         .onDisappear {
-            stopRecording()
+            recordingViewModel.stopRecording()
         }
     }
     
@@ -105,8 +111,6 @@ struct StoryDetailView: View {
                     .background(Color.black.opacity(0.5))
                     .clipShape(Capsule())
             }
-            
-           
             Text(user.question)
                 .font(.title2)
                 .fontWeight(.bold)
@@ -126,14 +130,19 @@ struct StoryDetailView: View {
     // MARK: - Recording Interface
     private var recordingInterface: some View {
         VStack(spacing: 20) {
-            // Recording time and waveform
-            if isRecording {
+            if recordingViewModel.isRecording || recordingViewModel.isPlaying  {
                 VStack(spacing: 12) {
-                    Text(formatTime(recordingTime))
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    
+                    if !recordingViewModel.isPlaying {
+                        Text(recordingViewModel.formatTime(recordingViewModel.recordingTime))
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }else {
+                        Text(recordingViewModel.playerTime)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }
                     waveformView
                 }
                 .transition(.scale.combined(with: .opacity))
@@ -141,9 +150,8 @@ struct StoryDetailView: View {
             
             // Bottom controls
             HStack(spacing: 40) {
-                // Delete button (only visible when recording)
-                if isRecording {
-                    Button(action: cancelRecording) {
+                if recordingViewModel.isRecording {
+                    Button(action: recordingViewModel.cancelRecording) {
                         Text("Delete")
                             .font(.body)
                             .fontWeight(.medium)
@@ -157,10 +165,15 @@ struct StoryDetailView: View {
                 
                 // Record button
                 recordButton
-                
-    
-                if isRecording {
-                    Button(action: submitRecording) {
+                if recordingViewModel.isRecording {
+                    Button {
+                        recordingViewModel.submitRecording()
+                        localUser.isRecorded = true
+                        onSubmit(localUser)
+                        dismiss()
+                        
+                    }label: {
+                        
                         Text("Submit")
                             .font(.body)
                             .fontWeight(.medium)
@@ -175,7 +188,7 @@ struct StoryDetailView: View {
             .padding(.horizontal, 40)
             .padding(.bottom, 100)
             
-            if !isRecording {
+            if !recordingViewModel.isRecording {
                 Button(action: {}) {
                     Text("Unmatch")
                         .font(.body)
@@ -189,40 +202,40 @@ struct StoryDetailView: View {
     
 
     private var recordButton: some View {
-        Button(action: toggleRecording) {
+        Button(action: recordingViewModel.toggleRecording) {
             ZStack {
                 Circle()
                     .fill(Color.white.opacity(0.2))
                     .frame(width: 80, height: 80)
                 
                 Circle()
-                    .fill(isRecording ? Color.red : Color.gray.opacity(0.6))
-                    .frame(width: isRecording ? 30 : 60, height: isRecording ? 30 : 60)
-                    .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isRecording)
+                    .fill(recordingViewModel.isRecording ? Color.red : Color.gray.opacity(0.6))
+                    .frame(width: recordingViewModel.isRecording ? 30 : 60, height: recordingViewModel.isRecording ? 30 : 60)
+                    .animation(.spring(response: 0.3, dampingFraction: 0.7), value: recordingViewModel.isRecording)
                 
-                if !isRecording {
+                if !recordingViewModel.isRecording {
                     RoundedRectangle(cornerRadius: 4)
                         .fill(Color.white)
                         .frame(width: 20, height: 20)
                 }
             }
         }
-        .scaleEffect(isRecording ? 1.1 : 1.0)
-        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isRecording)
+        .scaleEffect(recordingViewModel.isRecording ? 1.1 : 1.0)
+        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: recordingViewModel.isRecording)
         .offset(dragOffset)
         .gesture(
             DragGesture()
                 .onChanged { value in
-                    if isRecording {
+                    if recordingViewModel.isRecording  {
                         dragOffset = value.translation
                         showDeleteZone = value.translation.width < -100
                     }
                 }
                 .onEnded { value in
-                    if isRecording {
+                    if recordingViewModel.isRecording {
                         if value.translation.height < -100 {
                             // Cancel recording
-                            cancelRecording()
+                            recordingViewModel.cancelRecording()
                         }
                         dragOffset = .zero
                         showDeleteZone = false
@@ -233,15 +246,31 @@ struct StoryDetailView: View {
     
     // MARK: - Waveform View
     private var waveformView: some View {
-        HStack(spacing: 2) {
-            ForEach(0..<audioLevels.count, id: \.self) { index in
-                RoundedRectangle(cornerRadius: 1)
-                    .fill(Color.white.opacity(0.8))
-                    .frame(width: 3, height: CGFloat(audioLevels[index]) * 30 + 2)
-                    .animation(.easeInOut(duration: 0.1), value: audioLevels[index])
+        HStack() {
+            if recordingViewModel.isPlaying {
+                ZStack{
+                    WaveformView(audioURL: recordingViewModel.recordingURL!) { waveformShape in
+                        waveformShape
+                    }
+//                    if let waveformImage = recordingViewModel.waveformImage {
+//                        waveformImage
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(maxWidth:.infinity,maxHeight: 40)
+//                    }
+                }
+            }else {
+                WaveformLiveCanvas(
+                    samples: recordingViewModel.audioLevels,
+                    configuration: recordingViewModel.liveConfiguration,
+                    shouldDrawSilencePadding: recordingViewModel.silence)
             }
+          
         }
-        .frame(height: 40)
+        .frame(maxWidth:.infinity,maxHeight: 40)
+        .padding(.horizontal,20)
+        
+        
     }
     
     // MARK: - Delete Zone Overlay
@@ -266,84 +295,11 @@ struct StoryDetailView: View {
         .padding(.top, 150)
         .transition(.move(edge: .top).combined(with: .opacity))
     }
-    
-    // MARK: - Recording Functions
-    private func toggleRecording() {
-        if isRecording {
-            stopRecording()
-        } else {
-            startRecording()
-        }
-    }
-    
-    private func startRecording() {
-        isRecording = true
-        recordingTime = 0
-        recordingTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            recordingTime += 0.1
-        }
-        
-        animationTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            updateAudioLevels()
-        }
-        
-        
-        setupAudioRecording()
-    }
-    
-    private func stopRecording() {
-        isRecording = false
-        recordingTimer?.invalidate()
-        animationTimer?.invalidate()
-        audioRecorder?.stop()
-        withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
-            dragOffset = .zero
-        }
-    }
-    
-    private func cancelRecording() {
-        stopRecording()
-    }
-    
-    private func submitRecording() {
-        stopRecording()
-        dismiss()
-    }
-    
-    private func updateAudioLevels() {
-        // Simulate audio level updates (replace with actual audio level monitoring)
-        let newLevel = Float.random(in: 0.1...1.0)
-        audioLevels.removeFirst()
-        audioLevels.append(newLevel)
-    }
-    
-    private func setupAudioRecording() {
-        // Audio recording setup (simplified)
-        let audioSession = AVAudioSession.sharedInstance()
-        try? audioSession.setCategory(.playAndRecord, mode: .default)
-        try? audioSession.setActive(true)
-        
-        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let audioFilename = documentsPath.appendingPathComponent("recording.m4a")
-        
-        let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
-            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-        ]
-        
-        try? audioRecorder = AVAudioRecorder(url: audioFilename, settings: settings)
-        audioRecorder?.isMeteringEnabled = true
-        audioRecorder?.record()
-    }
-    
-    private func formatTime(_ time: TimeInterval) -> String {
-        let minutes = Int(time) / 60
-        let seconds = Int(time) % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
+
+   
+   
 }
 #Preview {
-    StoryDetailView(user: DummyUserDatabase.users.first!)
+    StoryDetailView(user: DummyUserDatabase.users.first!, onSubmit: {_ in })
+        .environmentObject(previewData2)
 }

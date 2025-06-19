@@ -13,7 +13,7 @@ import SwiftUI
 struct BestAppApp: App {
     @StateObject var navigationState = NavigationState()
     @StateObject var onboardingViewModel = OnboardingViewModel()
-
+    @StateObject var recordingViewModel = RecordingViewModel()
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $navigationState.path) {
@@ -28,20 +28,24 @@ struct BestAppApp: App {
 
                         case .interestsScreen:
                             InterestPreferencesView(viewModel: onboardingViewModel)
+                                .environmentObject(recordingViewModel)
                                 .environmentObject(navigationState)
 
                         case .nameScreen:
                             NameEntryView(viewModel: onboardingViewModel)
                                 .environmentObject(navigationState)
+                                .environmentObject(recordingViewModel)
                             
 
                         case .tabbarScreen:
                             Tabbar()
                                 .environmentObject(navigationState)
+                                .environmentObject(recordingViewModel)
                                 .environmentObject(onboardingViewModel)
                         }
                     }
                     .environmentObject(navigationState)
+                    .environmentObject(recordingViewModel)
                     .environmentObject(onboardingViewModel)
             }
             

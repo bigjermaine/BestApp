@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserModel: Identifiable, Equatable {
+struct UserModel: Identifiable {
     let id = UUID()
     let name: String
     let age: Int
@@ -15,4 +15,5 @@ struct UserModel: Identifiable, Equatable {
     let question: String
     let sampleAnswer: String
     let gender:String
+    var isRecorded:Bool = false
 }

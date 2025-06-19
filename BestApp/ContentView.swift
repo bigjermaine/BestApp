@@ -28,7 +28,7 @@ struct ContentView: View {
                         .foregroundColor(.pink)
 
                     Text("Welcome to TrueConnect")
-                        .font(.largeTitle)
+                        .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
 
@@ -36,7 +36,7 @@ struct ContentView: View {
                         .font(.headline)
                         .foregroundColor(.white.opacity(0.7))
                 }
-
+                .padding(8)
                 Spacer()
 
                 Button(action: {
@@ -54,6 +54,7 @@ struct ContentView: View {
                 .padding(.horizontal, 30)
                 .padding(.bottom, 40)
             }
+            
         }
     }
 }
