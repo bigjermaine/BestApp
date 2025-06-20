@@ -9,7 +9,11 @@ import DSWaveformImage
 import DSWaveformImageViews
 import SwiftUI
 
+struct Story {
+    var name:String
+}
 struct StoryDetailView: View {
+    let stories: [Story] = [Story(name: ""),Story(name: "")]
     var user: UserModel
     var onSubmit: (UserModel) -> Void
     @State private var dragOffset: CGSize = .zero
@@ -18,7 +22,9 @@ struct StoryDetailView: View {
     @State private var localUser: UserModel
     @State private var animationTimer: Timer?
     @EnvironmentObject var recordingViewModel:RecordingViewModel
-    
+    @State private var currentIndex = 0
+    @State private var progress: CGFloat = 0.0
+    @State private var timer: Timer?
     init(user: UserModel, onSubmit: @escaping (UserModel) -> Void) {
           self.user = user
           self.onSubmit = onSubmit
@@ -43,6 +49,14 @@ struct StoryDetailView: View {
                     )
                     .ignoresSafeArea()
                 VStack {
+                    HStack(spacing: 4) {
+                        ForEach(0..<stories.count, id: \.self) { index in
+                            StoryProgressBar(progress: progressFor(index))
+                        }
+                    }
+                    .frame(height: 10)
+                    .padding(.horizontal)
+                    
                     topHeader
                     Spacer()
                     Spacer()
@@ -55,12 +69,60 @@ struct StoryDetailView: View {
                     deleteZoneOverlay
                 }
             }
+            .onTapGesture {
+                nextStory()
+            }
         }
         .navigationBarHidden(true)
         .onDisappear {
             recordingViewModel.stopRecording()
         }
-    }
+        .onAppear {
+                   startProgress()
+               }
+               .onDisappear {
+                   timer?.invalidate()
+               }
+           }
+
+           private func progressFor(_ index: Int) -> CGFloat {
+               if index < currentIndex {
+                   return 1.0
+               } else if index == currentIndex {
+                   return progress
+               } else {
+                   return 0.0
+               }
+           }
+
+           private func startProgress() {
+               progress = 0.0
+               timer?.invalidate()
+               timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { _ in
+                   if progress < 1.0 {
+                       progress += 0.01
+                   } else {
+                       nextStory()
+                   }
+               }
+           }
+
+           private func nextStory() {
+               if currentIndex < stories.count - 1 {
+                   currentIndex += 1
+                   startProgress()
+               } else {
+                   dismiss() // Close story view
+               }
+           }
+
+           private func prevStory() {
+               if currentIndex > 0 {
+                   currentIndex -= 1
+                   startProgress()
+               }
+           }
+    
     
     private var topHeader: some View {
         HStack {
@@ -73,7 +135,7 @@ struct StoryDetailView: View {
             }
             
             Spacer()
-            
+           
             Text("\(user.name), \(user.age)")
                 .font(.headline)
                 .fontWeight(.semibold)
@@ -150,7 +212,7 @@ struct StoryDetailView: View {
             
             // Bottom controls
             HStack(spacing: 40) {
-                if recordingViewModel.isRecording {
+                if recordingViewModel.isRecording || recordingViewModel.isPlaying {
                     Button(action: recordingViewModel.cancelRecording) {
                         Text("Delete")
                             .font(.body)
@@ -165,7 +227,7 @@ struct StoryDetailView: View {
                 
                 // Record button
                 recordButton
-                if recordingViewModel.isRecording {
+                if recordingViewModel.isRecording || recordingViewModel.isPlaying{
                     Button {
                         recordingViewModel.submitRecording()
                         localUser.isRecorded = true
@@ -202,7 +264,11 @@ struct StoryDetailView: View {
     
 
     private var recordButton: some View {
-        Button(action: recordingViewModel.toggleRecording) {
+        Button {
+            recordingViewModel.toggleRecording()
+            timer?.invalidate()
+            
+        }label: {
             ZStack {
                 Circle()
                     .fill(Color.white.opacity(0.2))
@@ -242,27 +308,47 @@ struct StoryDetailView: View {
                     }
                 }
         )
-     }
+    }
+     
     
     // MARK: - Waveform View
     private var waveformView: some View {
         HStack() {
             if recordingViewModel.isPlaying {
                 GeometryReader { geometry in
-                    ZStack{
-                        WaveformView(audioURL: recordingViewModel.recordingURL!,renderer:LinearWaveformRenderer() ) { waveformShape in
-                            waveformShape.fill(.white)
-                            waveformShape.fill(.purple).mask(alignment: .leading) {
-                                Rectangle().frame(width: geometry.size.width * recordingViewModel.playbackProgress)
-                            }
+                    ZStack {
+                        WaveformView(
+                            audioURL: recordingViewModel.recordingURL!,
+                            configuration: Waveform.Configuration(
+                                size: CGSize(width: 10, height: 60), // Adjust height for boxiness
+                                damping: .init(percentage: 0.125, sides: .both)
+                            ),
+                            renderer:LinearWaveformRenderer()
+                        ) { waveformShape in
+                            waveformShape
+                                .stroke(
+                                    Color.purple,
+                                    style: StrokeStyle(
+                                        lineWidth: 4,
+                                        lineCap: .butt,
+                                        dash: [4, 4] // <- Create broken lines
+                                    )
+                                )
+                                .mask(alignment: .leading) {
+                                    Rectangle()
+                                        .frame(width: geometry.size.width * recordingViewModel.playbackProgress)
+                                }
                         }
+                        .frame(height: 60)
                     }
+                    .padding()
                 }
+            
               }else {
                 WaveformLiveCanvas(
                     samples: recordingViewModel.audioLevels,
                     configuration: recordingViewModel.liveConfiguration,
-                    shouldDrawSilencePadding: recordingViewModel.silence)
+                    renderer: LinearWaveformRenderer(), shouldDrawSilencePadding: recordingViewModel.silence)
             }
           
         }

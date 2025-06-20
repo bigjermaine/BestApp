@@ -34,25 +34,29 @@ struct UserCardView: View {
             .cornerRadius(20)
             
             // Content overlay
-            VStack {
+            HStack{
                 Spacer()
-                
-                VStack(alignment: .center, spacing: 8) {
-                    // Name and age
-                    Text("\(user.name), \(user.age)")
-                        .font(.callout)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                VStack {
+                    Spacer()
                     
-                    // Question prompt
-                    Text(user.question)
-                        .font(.callout)
-                        .foregroundColor(.white.opacity(0.9))
-                        .multilineTextAlignment(.center)
+                    VStack(alignment: .center, spacing: 8) {
+                        // Name and age
+                        Text("\(user.name), \(user.age)")
+                            .font(.callout)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                        
+                        // Question prompt
+                        Text(user.question)
+                            .font(.callout)
+                            .foregroundColor(.white.opacity(0.9))
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 30)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 20)
-                .padding(.bottom, 30)
+                Spacer()
             }
             
             // Border/frame effect

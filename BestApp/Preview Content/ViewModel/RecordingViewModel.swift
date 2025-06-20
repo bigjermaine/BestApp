@@ -27,8 +27,11 @@ class RecordingViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published private var dragOffset: CGSize = .zero
     
     var liveConfiguration: Waveform.Configuration = .init(
-        style: .striped(.init(color: .black, width: 3, spacing: 3))
+        
+        style: .striped(.init(color: .purple, width:3, spacing: 4))
+        
     )
+    var liveConfiguration2 =  Waveform.Configuration(style: .striped(.init(color: .purple, width:3, spacing: 4)), damping: .init(percentage: 0.125, sides: .both))
     
     private var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
